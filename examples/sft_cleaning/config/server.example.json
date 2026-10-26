@@ -1,0 +1,35 @@
+{
+  "run_name": "sft-v1",
+  "output_root": "/mnt/sfs/ltj/text_cleaning/runs",
+  "scratch_root": "/tmp/datatrove-sft-cleaner",
+  "scratch_max_bytes": 8589934592,
+  "workers": 4,
+  "max_line_bytes": 16777216,
+  "rules": {"ngram_n": 8, "min_repetition_tokens": 128, "repetition_ratio": 0.6},
+  "api": {
+    "base_url": "http://IP:PORT/v1",
+    "model": "qwen3.8-27b",
+    "api_key_env": "SFT_CLEAN_API_KEY",
+    "concurrency": 32,
+    "chunk_size": 256,
+    "timeout_seconds": 180,
+    "max_input_chars": 60000,
+    "max_output_tokens": 256,
+    "enable_thinking": false,
+    "json_mode": true,
+    "keep_min_quality": 8,
+    "reject_max_quality": 3
+  },
+  "holdout_files": [],
+  "datasets": [
+    {"id": "Modotte/MathX-5M", "enabled": false, "domain": "math", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "open-thoughts/OpenThoughts3-1.2M", "enabled": false, "domain": "mixed_reasoning", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "nvidia/Nemotron-SFT-Science-v2", "enabled": false, "domain": "science", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "nvidia/Nemotron-SFT-Competitive-Programming-v2", "enabled": false, "domain": "code", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "nvidia/Nemotron-SFT-Math-v4", "enabled": false, "domain": "math", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "nvidia/Nemotron-Math-Proofs-v1", "enabled": false, "domain": "proof", "adapter": "auto", "supervision": "all_assistant", "files": []},
+    {"id": "openbmb/UltraData-SFT-2605", "enabled": false, "domain": "mixed_sft", "adapter": "auto", "supervision": "all_assistant", "allowed_splits": ["think", "no_think"], "allowed_configs": ["Math", "Code", "Knowledge", "Chinese-general", "IF", "Multi-lang-Math", "Multi-lang-Knowledge"], "files": []},
+    {"id": "openbmb/Ultra-FineWeb-L3", "enabled": false, "domain": "fineweb_explicit_qa", "adapter": "explicit_qa_only", "supervision": "all_assistant", "files": []},
+    {"id": "nvidia/Nemotron-SFT-Instruction-Following-Chat-v3", "enabled": false, "domain": "instruction_chat", "adapter": "auto", "supervision": "split_aware_chat_last", "allowed_splits": ["chat", "instruction_following"], "files": []}
+  ]
+}

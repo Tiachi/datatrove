@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/Tiachi/datatrove.git",
+  "branch": "codex/sft-cleaning-v1",
+  "checkout": "/mnt/sfs/ltj/project/datatrove",
+  "venv": "/mnt/sfs/ltj/runtime/datatrove-sft-cleaner",
+  "config_file": "/mnt/sfs/ltj/text_cleaning/config/server.json",
+  "launcher": "/mnt/sfs/ltj/text_cleaning/bin/sft-clean",
+  "receipts": "/mnt/sfs/ltj/text_cleaning/deployments",
+  "pip_index_url": "https://pypi.tuna.tsinghua.edu.cn/simple",
+  "install_parquet": true,
+  "run_offline_tests": true,
+  "upstream_commit": "1977fbb0f3c163d43cace334b073dda17fa3ef26"
+}
